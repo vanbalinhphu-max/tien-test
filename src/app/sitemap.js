@@ -15,9 +15,11 @@ export default async function sitemap() {
   return [
     {
       url: baseUrl,
+      lastModified: new Date(post.lastModified),
     },
     {
       url: `${baseUrl}/about`,
+      lastModified: new Date(),
     },
     ...postUrls,
   ];
