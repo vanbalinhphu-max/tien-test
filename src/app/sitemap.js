@@ -1,20 +1,19 @@
-const BASE_URL='http://localhost:3000';
-
 export default async function sitemap() {
     const res = await fetch(`${BASE_URL}/api/posts`);
     const posts = await res.json();
 
-    //Tạo URD động cho mỗi bài viết
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+
     const postUrls = posts.map(post=>({
-        url: `${BASE_URL}/posts/${post.slug}`,
+        url: `${baseUrl}/posts/${post.slug}`,
     }))
 
     return [
         {
-            url: BASE_URL,
+            url: baseUrl,
         },
         {
-            url: `${BASE_URL}/about`
+            url: `${baseUrl}/about`
         },
         ...postUrls
     ]
