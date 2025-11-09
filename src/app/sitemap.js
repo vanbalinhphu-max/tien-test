@@ -1,5 +1,5 @@
 export default async function sitemap() {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || vercelUrl;
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     const res = await fetch(`${baseUrl}/api/posts`);
     const posts = await res.json();
 
