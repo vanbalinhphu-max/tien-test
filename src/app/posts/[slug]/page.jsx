@@ -1,7 +1,5 @@
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
 export async function generateMetadata({ params }) {
-  const res = await fetch(`${baseUrl}/api/posts/${params.slug}`);
+  const res = await fetch(`/api/posts/${params.slug}`);
   const post = await res.json();
   if (!post) {
     return { title: "Không tìm thấy bài viết" };
@@ -12,7 +10,7 @@ export async function generateMetadata({ params }) {
   };
 }
 export default async function PostPage({ params }) {
-  const res = await fetch(`${baseUrl}/api/posts/${params.slug}`);
+  const res = await fetch(`/api/posts/${params.slug}`);
   const post = await res.json();
   if (!post) {
     return (
