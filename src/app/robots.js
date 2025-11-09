@@ -1,5 +1,6 @@
 import { userAgent } from "next/server";
 import sitemap from "./sitemap";
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
 export default function robots(){
     return{
@@ -8,6 +9,6 @@ export default function robots(){
             allow: '/',
             disallow : ['/admin/','/private/']
         },
-        sitemap: `${BASE_URL}/sitemap.xml`
+        sitemap: `${baseUrl}/sitemap.xml`
     }
 }
